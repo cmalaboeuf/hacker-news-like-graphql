@@ -1,0 +1,18 @@
+version: '2'
+volumes:
+  mongodb_data:
+services:
+  node:
+    extends:
+      file: docker-compose-base.yml
+      service: hacker-news-service
+    build:
+      context: ./node
+    links:
+      - mongo
+    ports:
+      - "8080:8080"    
+  mongo:
+    image: mongo
+    volumes:
+      - mongodb_data:/data
