@@ -3,14 +3,15 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
 
-const Title = styled.div`
-  color: #7F7F7F;
-  font-size: 32px;
-  font-weight: 300;
-`
+import AddPost from './AddPost';
 
-class HackerNews extends React.Component {
-
+class HackerNews extends React.Component { 
+  constructor(){
+    super();
+    this.state={ 
+      id : 1
+    };
+  }
   static propTypes = {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
@@ -27,13 +28,12 @@ class HackerNews extends React.Component {
     if (this.props.data.error) {
       console.log(this.props.data.error)
       return (<div>An unexpected error occurred</div>)
-    }
-
-    return (
-      <div className='w-100 bg-light-gray min-vh-100'>
+    }    
+    return (      
+      <div className='w-100 bg-light-gray min-vh-100'>        
         <div className='tc pa5'>
           {this.props.data.posts.map((post)=>
-          <div>{post.title}| vote {post.vote}</div>
+          <div key={post._id}>{post.title}| vote {post.vote}</div>
           )}
         </div>
       </div>
