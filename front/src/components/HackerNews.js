@@ -5,10 +5,10 @@ import styled from 'styled-components'
 
 import AddPost from './AddPost';
 
-class HackerNews extends React.Component { 
+class HackerNews extends React.Component {
   constructor(){
     super();
-    this.state={ 
+    this.state={
       id : 1
     };
   }
@@ -28,12 +28,12 @@ class HackerNews extends React.Component {
     if (this.props.data.error) {
       console.log(this.props.data.error)
       return (<div>An unexpected error occurred</div>)
-    }    
-    return (      
-      <div className='w-100 bg-light-gray min-vh-100'>        
+    }
+    return (
+      <div className='w-100 bg-light-gray min-vh-100'>
         <div className='tc pa5'>
           {this.props.data.posts.map((post)=>
-          <div key={post._id}>{post.title}| vote {post.vote}</div>
+          <div key={post._id}><a href={post.url}>{post.title}</a>| vote {post.vote}</div>
           )}
         </div>
       </div>
@@ -41,7 +41,7 @@ class HackerNews extends React.Component {
   }
 }
 
-const PostQuery = gql`query getPosts { posts { _id, title, vote } }`
+const PostQuery = gql`query getPosts { posts { _id, title,url, vote } }`
 
 const HackerNewsWithData = graphql(PostQuery)(HackerNews)
 

@@ -15,6 +15,9 @@ export default new GraphQLObjectType({
     title: {
       type: GraphQLString
     },
+    url: {
+      type: GraphQLString
+    },
     vote: {
       type: GraphQLInt
     }

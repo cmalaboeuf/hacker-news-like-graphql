@@ -10,6 +10,7 @@ export default new GraphQLInputObjectType({
   fields: {
     _id: {type: GraphQLID},
     title: {type: GraphQLString},
+    url: {type: GraphQLString},
     vote: {type: GraphQLInt}
   }
 });

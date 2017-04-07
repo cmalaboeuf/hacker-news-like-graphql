@@ -26,11 +26,12 @@ class AddPost extends React.Component {
 
   static propTypes = {
     router: React.PropTypes.object.isRequired,
-    mutate: React.PropTypes.func.isRequired,    
+    mutate: React.PropTypes.func.isRequired,
   }
 
-  state = {  
-    title: '',
+  state = {
+    url: '',
+    title : 'toto'
   }
 
   render () {
@@ -39,10 +40,10 @@ class AddPost extends React.Component {
         <Card style={{ maxWidth: 400 }}>
           <input
             className='w-100 pa3 mv2'
-            value={this.state.title}
-            placeholder='Title'
-            onChange={(e) => this.setState({title: e.target.value})}
-          />         
+            value={this.state.url}
+            placeholder='Url'
+            onChange={(e) => this.setState({url: e.target.value})}
+          />
           <div className='flex justify-between'>
             <Button onClick={this.handleCancel}>Cancel</Button>
             {this.canSave()
@@ -56,12 +57,12 @@ class AddPost extends React.Component {
   }
 
   canSave = () => {
-    return this.state.title
+    return this.state.url
   }
 
   handleSave = () => {
-    const {title} = this.state
-    this.props.mutate({variables: {data : {title}}})
+    const {url,title} = this.state;
+    this.props.mutate({variables: {data : {url,title}}})
       .then(() => {
         this.props.router.replace('/')
       })
