@@ -4,14 +4,9 @@ import gql from 'graphql-tag'
 import styled from 'styled-components'
 
 import AddPost from './AddPost';
+import Post from './Post';
 
 class HackerNews extends React.Component {
-  constructor(){
-    super();
-    this.state={
-      id : 1
-    };
-  }
   static propTypes = {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
@@ -33,12 +28,12 @@ class HackerNews extends React.Component {
       <div className='w-100 bg-light-gray min-vh-100'>
         <div className='tc pa5'>
           {this.props.data.posts.map((post)=>
-          <div key={post._id}><a href={post.url}>{post.title}</a>| vote {post.vote}</div>
+          <Post key={post._id} post={post} />
           )}
         </div>
       </div>
     )
-  }
+  }  
 }
 
 const PostQuery = gql`query getPosts { posts { _id, title,url, vote } }`
