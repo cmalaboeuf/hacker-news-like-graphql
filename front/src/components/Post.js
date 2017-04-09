@@ -14,25 +14,27 @@ class Post extends React.Component {
 
   state = {
     url: '',
-    title : 'toto'
+    vote:null,
   }
 
   render () {
+    if(this.state.vote === null){
+      this.state.vote = this.props.post.vote;
+    }
     return (
       <div>
-        <span><a href={this.props.post.url}>{this.props.post.title}</a>| vote {this.props.post.vote}</span> <button onClick={this.handleVote}>+</button>
+        <span><a href={this.props.post.url}>{this.props.post.title}</a>| vote {this.state.vote}</span> <button onClick={this.handleVote}>+</button>
       </div>
     )
   }
 
   handleVote = () => {
-    console.log("plop");
     const {vote} = this.state;
-    const _id = this.props.post._id;
-    this.props.mutate({variables: {data : {_id}}},  {forceFetch: true})
+    const _id = this.props.post._id;   
+    this.props.mutate({variables: {data : {_id}}},  {forceFetch: true},)
       .then(() => {
-        this.props.router.replace('/')
-      })
+        this.setState({vote : vote +1});       
+      })    
   }
 
   handleCancel = () => {
