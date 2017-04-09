@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 class Post extends React.Component {
-
   static propTypes = {
     router: React.PropTypes.object.isRequired,
     mutate: React.PropTypes.func.isRequired,

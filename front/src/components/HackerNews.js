@@ -24,7 +24,7 @@ class HackerNews extends React.Component {
     return (
       <div className='w-100 bg-light-gray min-vh-100'>
         <div className='tc pa5'>
-          {this.props.data.posts.map((post)=>
+          {this.props.data.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
           <Post key={post._id} post={post} />
           )}
         </div>
