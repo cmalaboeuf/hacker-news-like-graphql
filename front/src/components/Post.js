@@ -16,15 +16,18 @@ class Post extends React.Component {
     vote:null,
   }
 
-  render () {
-    if(this.state.vote === null){
-      this.setState({vote : this.props.post.vote});
-    }
+  render () {    
     return (
       <div>
         <span><a href={this.props.post.url}>{this.props.post.title}</a>| vote {this.state.vote}</span> <button onClick={this.handleVote}>+</button>
       </div>
     )
+  }
+
+  componentWillMount(){
+    if(this.state.vote === null){
+      this.setState({vote : this.props.post.vote});
+    }
   }
 
   handleVote = () => {
