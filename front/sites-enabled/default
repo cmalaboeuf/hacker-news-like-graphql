@@ -1,0 +1,9 @@
+server {
+
+  listen 80 default;
+  #server_name example.org;
+  access_log /var/log/nginx/nodejs_project.log;
+  charset utf-8;
+  server_name nginx;
+  root /usr/share/nginx/html;
+}
