@@ -37,10 +37,6 @@ class Post extends React.Component {
         this.setState({vote : vote +1});            
       })    
   }
-
-  handleCancel = () => {
-    this.props.router.replace('/')
-  }
 }
 
 const UpVotePostMutation = gql`mutation upVote ($data: PostInput!) { upVote(data:$data) }`
