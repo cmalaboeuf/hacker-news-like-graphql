@@ -21,12 +21,16 @@ class HackerNews extends React.Component {
       console.log(this.props.data.error)
       return (<div>An unexpected error occurred</div>)
     }
-    return (
-      <div className='w-100 bg-light-gray min-vh-100'>
-        <div className='tc pa5'>
-          {this.props.data.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
-          <Post key={post._id} post={post} />
-          )}
+    return (      
+      <div>
+        <a href="/create">New</a>      
+        <div className='w-100 bg-light-gray min-vh-100'>          
+          <div className='tc pa5'>
+            <h3>There is {this.props.data.posts.length} news</h3>
+            {this.props.data.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
+            <Post key={post._id} post={post} />
+            )}
+          </div>
         </div>
       </div>
     )
