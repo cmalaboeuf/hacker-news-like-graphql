@@ -18,7 +18,7 @@ class Post extends React.Component {
   render () {    
     return (
       <div>
-        <span><a href={this.props.post.url}>{this.props.post.title}</a>| vote {this.state.vote}</span> <button onClick={this.handleVote}>+</button>
+        <span><a href={this.props.post.url} target="_blank">{this.props.post.title}</a>| vote {this.state.vote}</span> <button onClick={this.handleVote}>+</button>
       </div>
     )
   }
@@ -34,7 +34,7 @@ class Post extends React.Component {
     const _id = this.props.post._id;   
     this.props.mutate({variables: {data : {_id}}},  {forceFetch: true},)
       .then(() => {
-        this.setState({vote : vote +1});       
+        this.setState({vote : vote +1});            
       })    
   }
 
