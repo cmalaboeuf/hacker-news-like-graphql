@@ -1,9 +1,6 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
-import styled from 'styled-components'
-
-import AddPost from './AddPost';
+import gql from 'graphql-tag';
 import Post from './Post';
 
 class HackerNews extends React.Component {

@@ -2,7 +2,6 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import styled from 'styled-components'
 
 class Post extends React.Component {
 
@@ -19,7 +18,7 @@ class Post extends React.Component {
 
   render () {
     if(this.state.vote === null){
-      this.state.vote = this.props.post.vote;
+      this.setState({vote : this.props.post.vote});
     }
     return (
       <div>
