@@ -1,17 +1,31 @@
 # hacker-news-like-graphql
-
-## Running with Docker
-You can use `docker-compose up` to  run an instance of graphql server
-
+## To run in prod mode with Docker
+Build the React front project :
 ```bash
-docker-compose up
+cd front && npm run build
+```
+You can use `docker-compose up` to  run an instance of graphql server
+```bash
+docker-compose -f docker-compose-prod.yml build && docker-compose -f docker-compose-prod.yml up -d
+```
+## To run in dev mode with Docker:
+Start mongodb and graphql server
+```bash
+docker-compose build && docker-compose up -d
+```
+
+Start react front and liveReload
+```bash
+cd front && npm start
 ```
 
 ## Requirements
 
 * [Node.js](http://nodejs.org/)
-* [MongoDB](https://www.mongodb.org/) 
-
+* [MongoDB](https://www.mongodb.org/)
+* [npm] (https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm)
+* [Docker] (https://docs.docker.com/engine/installation/)
+* [Docker compose] (https://docs.docker.com/compose/install/)
 ## License
 
 The MIT License (MIT) Copyright (c)
