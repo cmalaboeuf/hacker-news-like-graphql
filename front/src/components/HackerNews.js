@@ -26,9 +26,9 @@ class HackerNews extends React.Component {
         <a href="/create">New</a>
         <div className=''>
           <div className='tc pa5'>
-            <h3>There is {this.state.posts.length} news</h3>
+            <h3>There is {this.props.data.posts.length} news</h3>
             <ol>
-            {this.state.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
+            {this.props.data.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
               <Post key={post._id} post={post} />
             )}
             </ol>
