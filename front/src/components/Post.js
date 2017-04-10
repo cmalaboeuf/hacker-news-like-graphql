@@ -15,11 +15,11 @@ class Post extends React.Component {
     vote:null,
   }
 
-  render () {    
+  render () {
     return (
-      <div>
+      <li>
         <span><a href={this.props.post.url} target="_blank">{this.props.post.title}</a>| vote {this.state.vote}</span> <button onClick={this.handleVote}>+</button>
-      </div>
+      </li>
     )
   }
 
@@ -31,11 +31,11 @@ class Post extends React.Component {
 
   handleVote = () => {
     const {vote} = this.state;
-    const _id = this.props.post._id;   
+    const _id = this.props.post._id;
     this.props.mutate({variables: {data : {_id}}},  {forceFetch: true},)
       .then(() => {
-        this.setState({vote : vote +1});            
-      })    
+        this.setState({vote : vote +1});
+      })
   }
 }
 

@@ -8,7 +8,7 @@ class HackerNews extends React.Component {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
       error: React.PropTypes.object,
-      Trainer: React.PropTypes.object,
+      posts: React.PropTypes.array,
     }).isRequired,
   }
 
@@ -21,20 +21,22 @@ class HackerNews extends React.Component {
       console.log(this.props.data.error)
       return (<div>An unexpected error occurred</div>)
     }
-    return (      
+    return (
       <div>
-        <a href="/create">New</a>      
-        <div className='w-100 bg-light-gray min-vh-100'>          
+        <a href="/create">New</a>
+        <div className=''>
           <div className='tc pa5'>
-            <h3>There is {this.props.data.posts.length} news</h3>
-            {this.props.data.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
-            <Post key={post._id} post={post} />
+            <h3>There is {this.state.posts.length} news</h3>
+            <ol>
+            {this.state.posts.sort((prev,next)=>next.vote - prev.vote).map((post)=>
+              <Post key={post._id} post={post} />
             )}
+            </ol>
           </div>
         </div>
       </div>
     )
-  }  
+  }
 }
 
 const PostQuery = gql`query getPosts { posts { _id, title,url, vote } }`
