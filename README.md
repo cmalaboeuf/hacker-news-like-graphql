@@ -23,9 +23,9 @@ cd front && npm start
 
 * [Node.js](http://nodejs.org/)
 * [MongoDB](https://www.mongodb.org/)
-* [npm] (https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm)
-* [Docker] (https://docs.docker.com/engine/installation/)
-* [Docker compose] (https://docs.docker.com/compose/install/)
+* [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm)
+* [Docker](https://docs.docker.com/engine/installation/)
+* [Docker compose](https://docs.docker.com/compose/install/)
 ## License
 
 The MIT License (MIT) Copyright (c)
