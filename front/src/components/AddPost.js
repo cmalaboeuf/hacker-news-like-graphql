@@ -43,6 +43,7 @@ class AddPost extends React.Component {
             value={this.state.url}
             placeholder='Url'
             onChange={(e) => this.setState({url: e.target.value})}
+            onKeyPress={this.handleKeyPress}
           />
           <div className='flex justify-between'>
             <Button onClick={this.handleCancel}>Cancel</Button>
@@ -58,6 +59,12 @@ class AddPost extends React.Component {
 
   canSave = () => {
     return this.state.url
+  }
+
+  handleKeyPress = (e)=> {
+    if (e.key === 'Enter') {
+     this.handleSave();
+    }
   }
 
   handleSave = () => {
